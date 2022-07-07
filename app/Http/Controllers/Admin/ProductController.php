@@ -24,6 +24,7 @@ class ProductController extends Controller
             'marca'=>'required',
             'tipo'=>'required',
             'precio'=>'required',
+            'estado'=>'required',
             'input_id'=>'required',
         ]);
         $product=Product::create($request->all());
@@ -31,7 +32,7 @@ class ProductController extends Controller
         $stock->stock = $request->cantidad;
         $stock->product_id=$product->id;
         $stock->save();
-        return redirect()->route("admin.inputs.show",$product->input_id)->with('info','The Product was saved successfully');;
+        return redirect()->route("admin.inputs.show",$product->input_id)->with('info','The Product was saved successfully');
     }
     public function edit(Product $product){
         $inputs = Input::pluck('factura','id');

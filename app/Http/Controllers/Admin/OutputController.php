@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Output;
+use App\Models\Detail;
 use App\Models\User;
 class OutputController extends Controller
 {
@@ -13,8 +14,9 @@ class OutputController extends Controller
         return view('admin.outputs.index',['outputs'=>$outputs]);
     }
     public function show(Output $output){      
-        $user=User::where('id',$output->user_id)->first();        
-        return view('admin.outputs.show',['output'=>$output,'user'=>$user]);
+        $user=User::where('id',$output->user_id)->first();      
+        $products=Detail::where('output_id',$output->id)->get();        
+        return view('admin.outputs.show',['output'=>$output,'user'=>$user,'products'=>$products]);
     }
     public function create(){                
         $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';

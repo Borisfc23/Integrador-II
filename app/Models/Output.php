@@ -19,6 +19,6 @@ class Output extends Model
     //relacion 1 a 1
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->hasOne(User::class,'id','user_id');
     }
 }

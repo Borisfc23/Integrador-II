@@ -1016,6 +1016,14 @@ select {
   margin-left: auto;
   margin-right: auto;
 }
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.mx-3 {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -1095,17 +1103,11 @@ select {
 .mt-0 {
   margin-top: 0px;
 }
+.mr-1 {
+  margin-right: 0.25rem;
+}
 .-mt-px {
   margin-top: -1px;
-}
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-.mb-5 {
-  margin-bottom: 1.25rem;
-}
-.mb-3 {
-  margin-bottom: 0.75rem;
 }
 .block {
   display: block;
@@ -1532,6 +1534,10 @@ select {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
 }
+.px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
 .pt-6 {
   padding-top: 1.5rem;
 }
@@ -1603,14 +1609,6 @@ select {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
 }
 .font-medium {
   font-weight: 500;

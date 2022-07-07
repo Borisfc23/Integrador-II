@@ -3,7 +3,11 @@
 @section('title', 'Dashboard | Administrador')
 
 @section('content_header')
-<h1 class=" mb-4 fs-1 text-uppercase font-weight-bold" style="font-size: 45px">Add Output</h1>
+<div class="card">
+    <div class="card-header" style="background: #417290;color:#fff">
+        <h1 class=" text-uppercase font-weight-bold" style="font-size: 45px"><i class="fas fa-plus"></i> Add Output</h1>        
+    </div>   
+</div>
 @stop
 
 @section('content')

@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Spatie\Permission\Models\Role;//listado de roles
-
 class UserController extends Controller
 {
     public function index(){        
@@ -24,4 +23,5 @@ class UserController extends Controller
         $user->delete();
         return redirect()->route('admin.users.index')->with('info','The user was deleted successfully.');
     }
+
 }

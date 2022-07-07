@@ -28,7 +28,7 @@
                         <th>ID</th>
                         <th>CODIGO</th>
                         <th>FECHA</th>                        
-                        {{-- <th>IN CHARGE</th>                         --}}
+                        <th>IN CHARGE</th>                        
                         <th>LOCATION</th>                        
                         <th colspan="3">ACTIONS</th>
                     </tr>
@@ -39,7 +39,7 @@
                             <td>{{$loop->index +1}}</td>
                             <td>{{$output->codigo}}</td>
                             <td>{{$output->fecha}}</td>
-                            {{-- <td>{{$output->user_id}}</td>                             --}}
+                            <td>{{$output->user->name}}</td>                            
                             <td>{{$output->ubicacion}}</td>                            
                             <td width="20px">                                                                                                
                                 <a href="{{ route('admin.outputs.edit',$output) }}" class="btn btn-warning">Editar</a>

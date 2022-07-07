@@ -34,6 +34,13 @@
     @enderror
 </div>
 <div class="form-group">
+    {!! Form::label('estado','Status') !!}    
+    {!! Form::select('estado', ['optimo'=>'Optimo','regular'=>'Regular','malo'=>'Mal estado'], null, ['class'=>'form-control']) !!}
+    @error('estado')
+        <span class="text-danger">{{$message}}</span>    
+    @enderror
+</div>
+<div class="form-group">
     {!! Form::label('input_id','Factura') !!}
     {!! Form::select('input_id', $inputs, null, ['class'=>'form-control']) !!}
     @error('input_id')

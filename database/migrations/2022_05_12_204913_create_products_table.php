@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('marca');
             $table->string('tipo');
             $table->double('precio');
+            $table->string('estado');
             $table->unsignedBigInteger('input_id');            
             $table->foreign('input_id')->references('id')->on('inputs');            
             $table->timestamps();

@@ -4,6 +4,7 @@
 
 @section('content_header')
 <div class="container-fluid">
+  <h1>dashboard</h1>
   <div class="p-2" style="background: #417290;color:#fff">
     <h2>
       <i class="fas fa-signal"></i>

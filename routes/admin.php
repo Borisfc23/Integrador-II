@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\InputController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\OutputController;
 use App\Http\Controllers\Admin\DetailController;
+use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\SearchInfo;
 
 // Route::get('', [HomeController::class, 'index'])->middleware('can:admin.index')->name('admin.index');
@@ -31,3 +32,10 @@ Route::controller(SearchInfo::class)->group(function () {
     Route::get('search/iproducts', 'indexProduct')->name('search.iproducts');    
     Route::get('search/iusers', 'indexUser')->name('search.iusers');    
 });
+
+
+//Rutas para Reprtes PDF
+Route::get('download-provider-pdf',[ReportController::class,'providerPDF'])->name('admin.providers.pdf');
+Route::get('download-user-pdf',[ReportController::class,'userPDF'])->name('admin.users.pdf');
+Route::get('download-almacen-pdf',[ReportController::class,'almacenPDF'])->name('admin.almacen.pdf');
+Route::get('/reporte/pdf',[ReportController::class,'indexAlmacen']);

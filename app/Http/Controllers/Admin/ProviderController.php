@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Provider;
+use PDF;
 class ProviderController extends Controller
 {
     public function index(){
@@ -42,4 +43,5 @@ class ProviderController extends Controller
         $provider->delete();
         return redirect()->route('admin.providers.index')->with('info','The provider was deleted successfully');
     }
+     
 }

@@ -12,7 +12,7 @@ use Tests\TestCase;
 class UpdatePasswordTest extends TestCase
 {
     use RefreshDatabase;
-
+// x
     public function test_password_can_be_updated()
     {
         $this->actingAs($user = User::factory()->create());
