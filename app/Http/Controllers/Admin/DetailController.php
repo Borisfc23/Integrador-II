@@ -19,8 +19,9 @@ class DetailController extends Controller
         ]);
         $productoBuscar=Product::where('nombre',$request->producto)->first();
         $productoStock=Stock::where('product_id',$productoBuscar->id)->get();                
-        if($request->cantidad>$productoStock[0]->stock){
-            return redirect()->route('admin.details.create')->with('info','The stock is insufficient.');
+        // dd((int)$request->cantidad>$productoStock[0]->stock);
+        if((int)$request->cantidad>$productoStock[0]->stock){
+            return redirect()->route('admin.details.create',["output_id"=>$request->output_id])->with('info','The stock is insufficient.');
         }else{                        
             $diferencia=$productoStock[0]->stock-$request->cantidad;
             $productoStock[0]->stock=$diferencia;            

@@ -51,7 +51,6 @@
             </div>
             <div class="header-info">
                 <p><b>Encargado: </b>{{ Auth::user()->name }}</p>
-
                 <p><b>Fecha: </b>{{ date('l \t\h\e jS') }}</p>
                 <p><b>Hora: </b>{{ date('H:i:s', time()) }}</p>
             </div>
@@ -59,36 +58,37 @@
         <div class="card">
             <div class="titulos">
                 <h1>Reporte del Almacen Constructora RF</h1>
-                <h3><u>Lista de Materiales del Almacen</u></h3>
+                <h3><u>Lista de Entradas al Almacen</u></h3>
+            </div>
+            <div>
+                <p><b>Fecha de Salida: </b>{{ $output->fecha }}</p>
+                <p><b>Codigo de Salida: </b>{{ $output->codigo }}</p>
+                <p><b>Encargado receptor: </b>{{ $user->name }} {{ $user->lastname }} - <b>DNI: </b>
+                    {{ $user->dni }} </p>
+                <p><b>Destino: </b>{{ $output->ubicacion }}</p>
             </div>
             <div>
                 <div>
-                    <table class="table" border="1">
+                    <table class="table">
                         <thead style="background-color: #343A40;color:#fff;text-align:center">
                             <tr>
                                 <th>ID</th>
                                 <th>NAME</th>
                                 <th>CANTIDAD</th>
-                                <th>MARCA</th>
-                                <th>TIPO</th>
-                                <th>ESTADO</th>
                             </tr>
                         </thead>
                         <tbody class="text-center">
                             @foreach ($products as $product)
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
-                                    <td>{{ $product->nombre }}</td>
-                                    <td>{{ $product->stocks[0]->stock }}</td>
-                                    <td>{{ $product->marca }}</td>
-                                    <td>{{ $product->tipo }}</td>
-                                    <td>{{ $product->estado }}</td>
+                                    <td>{{ $product->producto }}</td>
+                                    <td>{{ $product->cantidad }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                     <div>
-                        <p style="text-align: right"><b>Cantidad de Herramientas: </b>{{ count($products) }}</p>
+                        <p style="text-align: right"><b>Cantidad de Productos: </b>{{ count($products) }}</p>
                     </div>
                 </div>
             </div>

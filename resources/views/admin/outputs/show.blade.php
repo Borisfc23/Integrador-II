@@ -27,7 +27,11 @@
             </div>
             <div class="form-group">
                 {!! Form::label('codigo', 'Codigo') !!}
-                {!! Form::text('codigo', $output->codigo, ['class' => 'form-control', 'placeholder' => 'Enter factura name', 'disabled ']) !!}
+                {!! Form::text('codigo', $output->codigo, [
+                    'class' => 'form-control',
+                    'placeholder' => 'Enter factura name',
+                    'disabled ',
+                ]) !!}
                 @error('codigo')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -65,6 +69,11 @@
                 @enderror
             </div>
             <div>
+                <a class="btn btn-danger btn-lg float-left mx-2" href="{{ route('admin.outputs.pdf', $output) }}"><i
+                        class="fas fa-file-pdf"></i> Report
+                    PDF</a>
+            </div>
+            <div>
                 <a href="{{ route('admin.details.create', ['output_id' => $output->id]) }}"
                     class="btn btn-primary btn-lg float-right">Add Product</a>
                 <a href="{{ route('admin.outputs.index') }}" class="btn btn-warning btn-lg float-right mx-3">Back</a>
@@ -78,7 +87,7 @@
                             <th>ID</th>
                             <th>NAME</th>
                             <th>CANTIDAD</th>
-                            <th colspan="2">ACTIONS</th>
+                            {{-- <th colspan="2">ACTIONS</th> --}}
                         </tr>
                     </thead>
                     <tbody class="text-center">
@@ -87,15 +96,15 @@
                                 <td>{{ $loop->index + 1 }}</td>
                                 <td>{{ $product->producto }}</td>
                                 <td>{{ $product->cantidad }}</td>
-                                <td width="20px">
+                                {{-- <td width="20px">
                                     <a class="btn btn-warning">Editar</a>
                                 </td>
-                                <td width="20px">
-                                    {{-- <form action="{{ route('admin.products.destroy', $product) }}" method="post">
+                                <td width="20px"> --}}
+                                {{-- <form action="{{ route('admin.products.destroy', $product) }}" method="post">
                                         @csrf
                                         @method('delete') --}}
-                                    <button type="submit" class="btn btn-danger">Borrar</button>
-                                    {{-- </form> --}}
+                                {{-- <button type="submit" class="btn btn-danger">Borrar</button> --}}
+                                {{-- </form> --}}
                                 </td>
                             </tr>
                         @endforeach

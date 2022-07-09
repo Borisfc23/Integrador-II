@@ -51,7 +51,6 @@
             </div>
             <div class="header-info">
                 <p><b>Encargado: </b>{{ Auth::user()->name }}</p>
-
                 <p><b>Fecha: </b>{{ date('l \t\h\e jS') }}</p>
                 <p><b>Hora: </b>{{ date('H:i:s', time()) }}</p>
             </div>
@@ -59,11 +58,18 @@
         <div class="card">
             <div class="titulos">
                 <h1>Reporte del Almacen Constructora RF</h1>
-                <h3><u>Lista de Materiales del Almacen</u></h3>
+                <h3><u>Lista de Entradas al Almacen</u></h3>
+            </div>
+            <div>
+                <p><b>N° de Factura: </b>{{ $input->factura }}</p>
+                <p><b>Fecha de Ingreso: </b>{{ $input->fecha }}</p>
+                <p><b>Proveedor: </b>{{ $input->provider['nombre'] }} <b> Direccion: </b>
+                    {{ $input->provider['ubicacion'] }} <b> Telefono: </b>
+                    {{ $input->provider['telefono'] }}</p>
             </div>
             <div>
                 <div>
-                    <table class="table" border="1">
+                    <table class="table">
                         <thead style="background-color: #343A40;color:#fff;text-align:center">
                             <tr>
                                 <th>ID</th>
@@ -71,6 +77,7 @@
                                 <th>CANTIDAD</th>
                                 <th>MARCA</th>
                                 <th>TIPO</th>
+                                <th>PRECIO</th>
                                 <th>ESTADO</th>
                             </tr>
                         </thead>
@@ -79,16 +86,17 @@
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td>{{ $product->nombre }}</td>
-                                    <td>{{ $product->stocks[0]->stock }}</td>
+                                    <td>{{ $product->cantidad }}</td>
                                     <td>{{ $product->marca }}</td>
                                     <td>{{ $product->tipo }}</td>
+                                    <td>S/{{ $product->precio }}</td>
                                     <td>{{ $product->estado }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                     <div>
-                        <p style="text-align: right"><b>Cantidad de Herramientas: </b>{{ count($products) }}</p>
+                        <p style="text-align: right"><b>Cantidad de Productos: </b>{{ count($products) }}</p>
                     </div>
                 </div>
             </div>

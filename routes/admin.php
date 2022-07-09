@@ -38,4 +38,8 @@ Route::controller(SearchInfo::class)->group(function () {
 Route::get('download-provider-pdf',[ReportController::class,'providerPDF'])->name('admin.providers.pdf');
 Route::get('download-user-pdf',[ReportController::class,'userPDF'])->name('admin.users.pdf');
 Route::get('download-almacen-pdf',[ReportController::class,'almacenPDF'])->name('admin.almacen.pdf');
-Route::get('/reporte/pdf',[ReportController::class,'indexAlmacen']);
+Route::get('download-inputs-pdf/{input}',[ReportController::class,'inputPDF'])->name('admin.inputs.pdf');
+Route::get('download-outputs-pdf/{output}',[ReportController::class,'outputPDF'])->name('admin.outputs.pdf');
+
+//ruta de prueba
+// Route::get('/reporte/pdf',[ReportController::class,'outputPDF']);
