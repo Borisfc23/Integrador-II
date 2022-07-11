@@ -13,12 +13,11 @@ class ProductsIndex extends Component
      protected $paginationTheme='bootstrap';
      public $search;
     public function render()
-    {
-        // $products=Stock::where('producto','LIKE','%'.$this->search.'%')                            
-        //                     ->paginate(8);
-        $products=Product::where('nombre','LIKE','%'.$this->search.'%')
-        //                     ->orWhere('email','LIKE','%'.$this->search.'%')
+    {        
+        $products=Product::where('nombre','LIKE','%'.$this->search.'%')        
                             ->paginate(8);
+
+      
         return view('livewire.admin.products-index',['products'=>$products]);
     }
 }

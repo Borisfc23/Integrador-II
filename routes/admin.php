@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\OutputController;
 use App\Http\Controllers\Admin\DetailController;
 use App\Http\Controllers\Admin\ReportController;
+use App\Http\Controllers\Admin\MailController;
 use App\Http\Controllers\SearchInfo;
 
 // Route::get('', [HomeController::class, 'index'])->middleware('can:admin.index')->name('admin.index');
@@ -42,4 +43,7 @@ Route::get('download-inputs-pdf/{input}',[ReportController::class,'inputPDF'])->
 Route::get('download-outputs-pdf/{output}',[ReportController::class,'outputPDF'])->name('admin.outputs.pdf');
 
 //ruta de prueba
-// Route::get('/reporte/pdf',[ReportController::class,'outputPDF']);
+Route::get('/reporte/pdf',[ReportController::class,'outputPDF']);
+
+//Ruta para enviar correo 
+Route::get('/correo/send-email',[MailController::class,'sendEmail']);
