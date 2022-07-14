@@ -13,9 +13,10 @@ class ProductController extends Controller
     public function index(){        
         return view('admin.products.index');
     }
-    public function create(){
+    public function create(Request $request){   
+        $selected = Input::where('id',$request->id)->get();        
         $inputs = Input::pluck('factura','id');
-        return view('admin.products.create',['inputs'=>$inputs]);
+        return view('admin.products.create',['inputs'=>$inputs,'selected'=>$selected]);
     }
     public function store(Request $request){
         $request->validate([

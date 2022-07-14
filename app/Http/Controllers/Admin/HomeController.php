@@ -29,7 +29,7 @@ class HomeController extends Controller
         $cantidades=[];
         foreach ($productos as $producto) {
             $cantidades[]=['name'=>$producto->nombre,'y'=>$producto->stocks[0]->stock];
-        }
+        }        
         return view("admin.index",[
             'products'=>count($products),
             'providers'=>count($providers),

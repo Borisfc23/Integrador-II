@@ -11,10 +11,12 @@
 <body>
     <h1>{{ $details['title'] }}</h1>
     <p>
-        {{ $details['body'] }}
+        Buenas, tengo una consulta acerca del funcionamiento del sistema, por favor necesito ayuda con el manejo del
+        mismo.
     </p>
     <br>
-    <p>Gracias por el like y blalal</p>
+    <p>Gracias, espero y puedas contactarme a la brevedad.</p>
+    <p>Att.{{ Auth::user()->name }}</p>
 </body>
 
 </html>

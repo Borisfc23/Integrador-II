@@ -29,10 +29,27 @@ class TestMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('prueba de correo de boris flores')->view('emails.TestEmail');
+        return $this->subject('Consulta acerca del almacen de Constructora RF')->view('emails.TestEmail');
         return $this->view('view.name');
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // MAIL_MAILER=smtp
 // MAIL_HOST=smtp.mailtrap.io

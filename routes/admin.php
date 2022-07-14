@@ -46,4 +46,4 @@ Route::get('download-outputs-pdf/{output}',[ReportController::class,'outputPDF']
 Route::get('/reporte/pdf',[ReportController::class,'outputPDF']);
 
 //Ruta para enviar correo 
-Route::get('/correo/send-email',[MailController::class,'sendEmail']);
+Route::get('send-email',[MailController::class,'sendEmail'])->name('admin.email');

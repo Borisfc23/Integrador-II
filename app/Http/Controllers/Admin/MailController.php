@@ -11,11 +11,10 @@ class MailController extends Controller
 {
     public function sendEmail(){
         $details =[
-            'title'=>'titulo del correo',
-            'body'=>'cuerpo del correo',            
+            'title'=>'Contactacto de Almacen de la Constructora RF'            
         ];
 
-        Mail::to("borisfc96@gmail.com")->send(new TestMail($details));
-        return "Correo enviado";
+        Mail::to("user.prueba.2306@gmail.com")->send(new TestMail($details));
+        return view('admin.email.index')->with('info','');
     }
 }

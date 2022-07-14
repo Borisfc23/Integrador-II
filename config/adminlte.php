@@ -45,9 +45,9 @@ return [
     |
     */
 
-    'logo' => '<b>INVENTARIO</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
+    'logo' => '<b>WAREHOUSE-RF</b>',
+    'logo_img' => 'https://media-exp2.licdn.com/dms/image/C560BAQEdKU16EHWuvQ/company-logo_200_200/0/1519894865248?e=2147483647&v=beta&t=ORQA8j2UfbjS8rO2e6CMVI709j4slh8buA90q2RZuAI',
+    'logo_img_class' => 'brand-image img-circle elevation-3 ',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'AdminLTE',
@@ -282,13 +282,13 @@ return [
             ],         
         ],  
         [
-            'text' => 'Output',
+            'text' => 'Outputs',
             'route'  => 'admin.outputs.index',            
             'icon' => 'fas fa-fw fa-door-open',     
             'active'=>['admin/outputs*'],            
         ],
         [
-            'text' => 'Almacen',
+            'text' => 'Warehouse',
             'route'  => 'admin.products.index',            
             'icon' => 'fas fa-fw fa-warehouse',
             'active'=>['admin/products'],    
@@ -304,8 +304,15 @@ return [
         [
             'text' => 'Order',
             'route'  => 'admin.providers.index',   
-            'active'=>['admin'],         
+            // 'active'=>['admin'],         
             'icon' => 'fas fa-fw fa-folder',
+        ],       
+        ['header' => 'CONTACTS'],
+        [
+            'text' => 'Contact Admin',
+            'route'  => 'admin.email',   
+            'active'=>['admin/email*'],         
+            'icon' => 'fas fa-fw fa-envelope',
         ],       
     ],
 

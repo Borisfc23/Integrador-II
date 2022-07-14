@@ -49,7 +49,9 @@
                     PDF</a>
             </div>
             <div>
-                <a href="{{ route('admin.products.create') }}" class="btn btn-primary btn-lg float-right">Add Product</a>
+                <a href="{{ route('admin.products.create', ['id' => $input->id]) }}"
+                    class="btn btn-primary btn-lg float-right">Add
+                    Product</a>
                 <a href="{{ route('admin.inputs.index') }}" class="btn btn-warning btn-lg float-right mx-2">Back</a>
             </div>
         </div>
