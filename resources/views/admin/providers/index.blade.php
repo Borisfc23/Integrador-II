@@ -16,10 +16,21 @@
             <strong>{{ session('info') }}</strong>
         </div>
     @endif
+    @if (session('errors'))
+        <div class="alert alert-danger" role="alert">
+            <strong>{{ session('errors') }}</strong>
+        </div>
+    @endif
     <div class="card">
         <div class="card-header">
-            <a href="{{ route('admin.providers.create') }}" class="btn btn-primary btn-lg float-right">Add Provider</a>
-            <a class="btn btn-danger btn-lg float-right mx-2" href="{{ route('admin.providers.pdf') }}"><i
+            <a href="{{ route('admin.providers.create') }}" class="btn btn-primary btn-lg float-right"><i
+                    class="fas fa-plus-square"></i> Add
+                Provider</a>
+            <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success btn-lg float-right mx-2">
+                <i class="fas fa-file-excel"></i> Import
+                Excel
+            </button>
+            <a class="btn btn-danger btn-lg float-right " href="{{ route('admin.providers.pdf') }}"><i
                     class="fas fa-file-pdf"></i> Report
                 PDF</a>
         </div>
@@ -39,7 +50,7 @@
                     <tbody class="text-center">
                         @foreach ($providers as $provider)
                             <tr>
-                                <td>{{ $provider->id }}</td>
+                                <td>{{ $loop->index + 1 }}</td>
                                 <td>{{ $provider->nombre }}</td>
                                 <td>{{ $provider->encargado }}</td>
                                 <td>{{ $provider->ubicacion }}</td>
@@ -59,9 +70,41 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="mt-3 d-flex justify-content-end ">
+                    {!! $providers->links() !!}
+                </div>
             </div>
         </div>
-
     </div>
 
+    <!-- Modal Import Provider-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Import providers from excel </h5>
+                    <button type="button" class="btn-close  bg-danger" data-bs-dismiss="modal"
+                        aria-label="Close">X</button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('admin.providers.store') }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="formFileMultiple" class="form-label">*Select file provider</label>
+                            <input type="file" class="form-control" id="formFileMultiple" name="import_file"
+                                accept=".xlsx">
+                        </div>
+                        <hr>
+                        <button type="submit" class="btn btn-primary float-right">Import</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+@stop
+
+@section('js')
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
 @stop
