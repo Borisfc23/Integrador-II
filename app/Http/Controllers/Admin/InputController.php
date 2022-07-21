@@ -14,9 +14,10 @@ class InputController extends Controller
         return view('admin.inputs.index',['inputs'=>$inputs]);
     }
     public function show(Input $input){
+        $selected=Provider::where('id',$input->provider_id)->get();
         $providers=Provider::pluck('nombre','id');
         $products=Product::where('input_id',$input->id)->get();
-        return view('admin.inputs.show',['products'=>$products,'providers'=>$providers,'input'=>$input]);
+        return view('admin.inputs.show',['products'=>$products,'providers'=>$providers,'input'=>$input,'selected'=>$selected]);
     }
     public function create(){
         $providers=Provider::pluck('nombre','id');

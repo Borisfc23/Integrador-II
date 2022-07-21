@@ -87,7 +87,6 @@
                             <th>ID</th>
                             <th>NAME</th>
                             <th>CANTIDAD</th>
-                            {{-- <th colspan="2">ACTIONS</th> --}}
                         </tr>
                     </thead>
                     <tbody class="text-center">
@@ -96,15 +95,6 @@
                                 <td>{{ $loop->index + 1 }}</td>
                                 <td>{{ $product->producto }}</td>
                                 <td>{{ $product->cantidad }}</td>
-                                {{-- <td width="20px">
-                                    <a class="btn btn-warning">Editar</a>
-                                </td>
-                                <td width="20px"> --}}
-                                {{-- <form action="{{ route('admin.products.destroy', $product) }}" method="post">
-                                        @csrf
-                                        @method('delete') --}}
-                                {{-- <button type="submit" class="btn btn-danger">Borrar</button> --}}
-                                {{-- </form> --}}
                                 </td>
                             </tr>
                         @endforeach

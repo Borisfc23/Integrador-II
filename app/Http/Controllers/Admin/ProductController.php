@@ -36,8 +36,9 @@ class ProductController extends Controller
         return redirect()->route("admin.inputs.show",$product->input_id)->with('info','The Product was saved successfully');
     }
     public function edit(Product $product){
+        $selected = Input::where('id',$product->input_id)->get();                
         $inputs = Input::pluck('factura','id');
-        return view('admin.products.edit',['product'=>$product,'inputs'=>$inputs]);
+        return view('admin.products.edit',['product'=>$product,'inputs'=>$inputs,'selected'=>$selected]);
     }
     public function update(Request $request,Product $product){
         $request->validate([

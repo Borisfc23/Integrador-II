@@ -38,7 +38,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label('provider_id', 'Provider') !!}
-                {!! Form::select('provider_id', $providers, null, ['class' => 'form-control', 'disabled ']) !!}
+                {!! Form::select('provider_id', $providers, $selected, ['class' => 'form-control', 'disabled ']) !!}
                 @error('provider_id')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror

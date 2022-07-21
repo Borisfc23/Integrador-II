@@ -303,8 +303,8 @@ return [
         ['header' => 'SEE ORDERS'],
         [
             'text' => 'Order',
-            'route'  => 'admin.providers.index',   
-            // 'active'=>['admin'],         
+            'route'  => 'admin.orders.index',   
+            'active'=>['admin/orders*'],         
             'icon' => 'fas fa-fw fa-folder',
         ],       
         ['header' => 'CONTACTS'],

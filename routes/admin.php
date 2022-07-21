@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\OutputController;
 use App\Http\Controllers\Admin\DetailController;
 use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Admin\MailController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\SearchInfo;
 
 // Route::get('', [HomeController::class, 'index'])->middleware('can:admin.index')->name('admin.index');
@@ -29,11 +30,12 @@ Route::resource('outputs', OutputController::class)->names("admin.outputs");
 
 Route::resource('details', DetailController::class)->names("admin.details");
 
+Route::resource('orders', OrderController::class)->names("admin.orders");
+
 Route::controller(SearchInfo::class)->group(function () {
     Route::get('search/iproducts', 'indexProduct')->name('search.iproducts');    
     Route::get('search/iusers', 'indexUser')->name('search.iusers');    
 });
-
 
 //Rutas para Reprtes PDF
 Route::get('download-provider-pdf',[ReportController::class,'providerPDF'])->name('admin.providers.pdf');

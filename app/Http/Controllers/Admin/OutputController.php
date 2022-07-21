@@ -41,7 +41,8 @@ class OutputController extends Controller
         return redirect()->route('admin.outputs.index')->with('info','Output created!!');
     }
     public function edit(Output $output){                
-        return view('admin.outputs.edit',['output'=>$output]);
+        $user=User::where('id',$output->user_id)->first();
+        return view('admin.outputs.edit',['output'=>$output,'dni'=>$user->dni]);
     }
     public function destroy(Output $output){
         $output->delete();
