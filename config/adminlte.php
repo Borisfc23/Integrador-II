@@ -246,19 +246,22 @@ return [
             'route'  => 'admin.index',            
             'icon' => 'fas fa-fw fa-home',
             'active'=>['admin'],      
+            'can'=>'admin.index'
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'account_settings','can'=>'admin.users.index'],
         [
             'text' => 'Users',
             'route'  => 'admin.users.index',            
             'icon' => 'fas fa-fw fa-users',
             'active'=>['admin/users*'],      
+            'can'=>'admin.users.index'
         ],
         [
             'text' => 'List Roles',
             'route'  => 'admin.roles.index',            
             'icon' => 'fas fa-users-cog fa-fw',
             'active'=>['admin/roles*'],      
+            'can'=>'admin.roles.index'
         ],
 
         // [
@@ -266,18 +269,20 @@ return [
         //     'url'  => 'admin/settings',
         //     'icon' => 'fas fa-fw fa-lock',
         // ],
-        ['header' => 'STOCK CONTROL'],
+        ['header' => 'STOCK CONTROL','can'=>'admin.outputs.index'],
         [
             'text' => 'Inputs',
             'route'  => 'admin.inputs.index',            
             'icon' => 'fas fa-fw fa-sign-out-alt',  
             'active'=>['admin/inputs*'],       
+            'can'=>'admin.users.index',
             'submenu' => [
                 [
                     'text' => 'Facturas',
                     'route'  => 'admin.inputs.index',            
                     'icon' => 'fas fa-fw fa-file',  
                     'active'=>['admin/inputs*'],    
+                    'can'=>'admin.inputs.index'
                 ],
             ],         
         ],  
@@ -285,34 +290,39 @@ return [
             'text' => 'Outputs',
             'route'  => 'admin.outputs.index',            
             'icon' => 'fas fa-fw fa-door-open',     
-            'active'=>['admin/outputs*'],            
+            'active'=>['admin/outputs*'],       
+            'can'=>'admin.outputs.index'     
         ],
         [
             'text' => 'Warehouse',
             'route'  => 'admin.products.index',            
             'icon' => 'fas fa-fw fa-warehouse',
             'active'=>['admin/products'],    
+            'can'=>'admin.products.index'
         ],
-        ['header' => 'LIST PROVIDERS'],
+        ['header' => 'LIST PROVIDERS','can'=>'admin.providers.index'],
         [
             'text' => 'Provider',
             'route'  => 'admin.providers.index',   
             'active'=>['admin/providers*'],         
             'icon' => 'fas fa-fw fa-store',
+            'can'=>'admin.providers.index'
         ],
-        ['header' => 'SEE ORDERS'],
+        ['header' => 'SEE ORDERS','can'=>'admin.users.index'],
         [
             'text' => 'Order',
             'route'  => 'admin.orders.index',   
             'active'=>['admin/orders*'],         
-            'icon' => 'fas fa-fw fa-folder',
+            'icon' => 'fas fa-fw fa-folder',     
+            'can'=>'admin.orders.index'       
         ],       
-        ['header' => 'CONTACTS'],
+        ['header' => 'CONTACTS','can'=>'admin.email'],
         [
             'text' => 'Contact Admin',
             'route'  => 'admin.email',   
             'active'=>['admin/email*'],         
             'icon' => 'fas fa-fw fa-envelope',
+            'can'=>'admin.email'
         ],       
     ],
 

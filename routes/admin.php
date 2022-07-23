@@ -16,21 +16,21 @@ use App\Http\Controllers\SearchInfo;
 // Route::get('', [HomeController::class, 'index'])->middleware('can:admin.index')->name('admin.index');
 Route::get('', [HomeController::class, 'index'])->name('admin.index');
 
-Route::resource('users', UserController::class)->names("admin.users");
+Route::resource('users', UserController::class)->middleware('can:admin.users.index')->names("admin.users");
 
-Route::resource('roles', RoleController::class)->names("admin.roles");
+Route::resource('roles', RoleController::class)->middleware('can:admin.roles.index')->names("admin.roles");
 
-Route::resource('providers', ProviderController::class)->names("admin.providers");
+Route::resource('providers', ProviderController::class)->middleware('can:admin.providers.index')->names("admin.providers");
 
-Route::resource('inputs', InputController::class)->names("admin.inputs");
+Route::resource('inputs', InputController::class)->middleware('can:admin.inputs.index')->names("admin.inputs");
 
-Route::resource('products', ProductController::class)->names("admin.products");
+Route::resource('products', ProductController::class)->middleware('can:admin.products.index')->names("admin.products");
 
-Route::resource('outputs', OutputController::class)->names("admin.outputs");
+Route::resource('outputs', OutputController::class)->middleware('can:admin.outputs.index')->names("admin.outputs");
 
-Route::resource('details', DetailController::class)->names("admin.details");
+Route::resource('details', DetailController::class)->middleware('can:admin.details.index')->names("admin.details");
 
-Route::resource('orders', OrderController::class)->names("admin.orders");
+Route::resource('orders', OrderController::class)->middleware('can:admin.orders.index')->names("admin.orders");
 
 Route::controller(SearchInfo::class)->group(function () {
     Route::get('search/iproducts', 'indexProduct')->name('search.iproducts');    

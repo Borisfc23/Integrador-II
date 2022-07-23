@@ -4,67 +4,68 @@
 
 @section('content_header')
     <div class="container-fluid">
-        <h1>dashboard</h1>
         <div class="p-2" style="background: #417290;color:#fff">
             <h2>
                 <i class="fas fa-signal"></i>
-                Estadisticas
+                Home
             </h2>
         </div>
-        <div class="row mt-4">
-            <div class="col-lg-3 col-6">
-                <div class="small-box bg-info">
-                    <div class="inner">
-                        <h3>{{ $products }}</h3>
-                        <p>Products</p>
+        @can('admin.index')
+            <div class="row mt-4">
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <h3>{{ $products }}</h3>
+                            <p>Products</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <a data-bs-toggle="modal" data-bs-target="#stockModal" class="small-box-footer"
+                            style="cursor: pointer;">View Stock <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
-                    <div class="icon">
-                        <i class="fas fa-tools"></i>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg-warning">
+                        <div class="inner">
+                            <h3>{{ $providers }}</h3>
+                            <p>Providers</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <a href="{{ route('admin.providers.index') }}" class="small-box-footer">More info <i
+                                class="fas fa-arrow-circle-right"></i></a>
                     </div>
-                    <a data-bs-toggle="modal" data-bs-target="#stockModal" class="small-box-footer"
-                        style="cursor: pointer;">View Stock <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg-success">
+                        <div class="inner">
+                            <h3>{{ $outputs }}</h3>
+                            <p>Outputs</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-door-open"></i>
+                        </div>
+                        <a data-bs-toggle="modal" data-bs-target="#outputModal" class="small-box-footer">View Line Time <i
+                                class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="small-box " style="background:#FF795F ">
+                        <div class="inner">
+                            <h3>{{ $users }}</h3>
+                            <p>Users</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <a href="{{ route('admin.users.index') }}" class="small-box-footer">More info <i
+                                class="fas fa-arrow-circle-right"></i></a>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-6">
-                <div class="small-box bg-warning">
-                    <div class="inner">
-                        <h3>{{ $providers }}</h3>
-                        <p>Providers</p>
-                    </div>
-                    <div class="icon">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    <a href="{{ route('admin.providers.index') }}" class="small-box-footer">More info <i
-                            class="fas fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-6">
-                <div class="small-box bg-success">
-                    <div class="inner">
-                        <h3>{{ $outputs }}</h3>
-                        <p>Outputs</p>
-                    </div>
-                    <div class="icon">
-                        <i class="fas fa-door-open"></i>
-                    </div>
-                    <a data-bs-toggle="modal" data-bs-target="#outputModal" class="small-box-footer">View Line Time <i
-                            class="fas fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-6">
-                <div class="small-box " style="background:#FF795F ">
-                    <div class="inner">
-                        <h3>{{ $users }}</h3>
-                        <p>Users</p>
-                    </div>
-                    <div class="icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <a href="{{ route('admin.users.index') }}" class="small-box-footer">More info <i
-                            class="fas fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-        </div>
+        @endcan
         <div class="row mt-5">
             <div class="col-lg-6 col-6">
                 <div class="small-box bg-primary">
